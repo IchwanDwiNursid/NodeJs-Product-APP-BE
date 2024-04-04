@@ -1,0 +1,99 @@
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name" : "testing",
+    "email" : "testing@gmail.com",
+    "password" : "test123",
+    "confPassword": "test123",
+    "role": "users"
+}
+
+###
+//get all users
+GET http://localhost:5000/users/
+Content-Type: application/json
+
+###
+//get user by id
+GET http://localhost:5000/users/1054
+Content-Type: application/json
+
+###
+// update users
+PATCH http://localhost:5000/users/49
+Content-Type: application/json
+
+{
+    "password" : "test2"
+}
+
+###
+//delete users
+DELETE http://localhost:5000/users/48
+Content-Type: application/json
+
+# ---------------AUTH MIDDLEWARE--------
+###
+//Login role = Admin
+GET http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email" : "test@gmail.com",
+    "password" : "test"
+}
+###
+// Login role = "Users"
+GET http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email" : "testing@gmail.com",
+    "password" : "test123"
+}
+###
+// Logout User
+DELETE http://localhost:5000/logout
+Content-Type: application/json
+
+###
+//user now
+GET http://localhost:5000/userNow
+Content-Type: application/json
+###
+
+# ---------PRODUCT TEST---------- 
+# get Product
+GET http://localhost:5000/products
+Content-Type: application/json
+
+###
+# create Product
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+    "name" : "Laptop MSI",
+    "price" : 23000000,
+    "description" : "Laptop Gaming Gila"
+}
+
+###
+# Get Product By Id
+GET http://localhost:5000/products/7
+Content-Type: application/json
+
+###
+PATCH  http://localhost:5000/products/12
+Content-Type: application/json
+
+{
+    "name" : "Camera Channon",
+    "price" : 10000000,
+    "description" : "Camera Canon murah dan bagus"
+}
+
+###
+DELETE  http://localhost:5000/products/7
+Content-Type: application/json
